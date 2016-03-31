@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Document</title>
+<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+<script type="text/javascript">
+    $("document").ready(function() {
+       $("form th :checkbox").click(function(){
+	    if($(this).attr("checked"))
+	   		$("form td :checkbox").attr("checked","checked");
+		else
+			$("form td :checkbox").attr("checked","");
+	
+	   });
+	  
+    });
+</script>
+<style type="text/css">
+	body{font-family:Arial, Helvetica, sans-serif}
+	caption{text-align:left;background:#000066;color:#fff;}
+	
+	col.checkBox{width:25px}
+	table{table-layout:fixed;border-collapse:collapse;}
+	th{text-align:left;background:#9DAEFF;font-weight:bolder;}
+	th,td{padding:2px;font-size:12px;}
+</style>
+</head>
+
+<body>
+<form method="post">
+<table width="100%" border="1" cellpadding="0" cellspacing="0" id="emailTable">
+  <caption>
+    Inbox
+  </caption>
+  <colgroup>
+  	<col class="checkBox" />
+	<col class="subject"/>
+	
+  </colgroup>
+  <tr>
+    <th scope="col"><input name="" type="checkbox" value="2" /></th>
+    <th scope="col">Subject</th>
+  </tr>
+  <tr>
+    <td><input name="" type="checkbox" value="" /></td>
+    <td>Your ticket is confirmed ! </td>
+  </tr>
+  <tr>
+    <td><input name="" type="checkbox" value="" /></td>
+    <td>Win $1,00,000 . </td>
+  </tr>
+  <tr>
+    <td><input name="" type="checkbox" value="" /></td>
+    <td>Hi honey. </td>
+  </tr>
+  <tr>
+    <td><input name="" type="checkbox" value="" /></td>
+    <td>UX News letter. </td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

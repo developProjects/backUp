@@ -1,0 +1,34 @@
+.kwicks-ul {
+  width: 510px;  /** total width of the list -- make sure to compensate for padding if customizing**/
+  height: 50px;  /** total height of the list **/
+  overflow: hidden; /** hide the overflow of elements **/
+  list-style: none; /** set the list style to none **/
+
+  /** customize as needed **/
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+
+.kwicks-li {
+  display: block;
+  float: left;
+  cursor: pointer;
+  width: 100px; /** set width of each element **/
+  height: 50px; /** set the height of each element **/
+
+  /** customize as needed **/
+  padding: 0;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #FF9933;
+  background-position: 0 110px;
+}
+
+.kwicks-li h3 {
+  /** customizing as needed **/
+  color: #333333;
+  font-size: 10px;
+  font-style:italic;
+}

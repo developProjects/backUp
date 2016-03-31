@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style>
+div { height: 100px; width: 300px; margin: 10px; 
+      background-color: #ffd; overflow: auto; }
+</style>
+<script type="text/javascript" src="../jquery-1.4.2.js"></script>
+
+</head>
+<body>
+	
+<div></div>
+<script>
+var last, diff;
+$('div').click(function(event) {
+  if ( last ) {
+    diff = event.timeStamp - last
+    $('div').append('time since last event: ' + diff + '<br/>');
+  } else {
+    $('div').append('Click again.<br/>');
+  }
+  last = event.timeStamp;
+});  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="movieTemplate" type="text/x-jquery-tmpl">
+    <li>
+        <b>${Name}</b>
+    </li>
+</script>
+
+<button id="lastItemBtn">Details of last movie</button>
+
+<ul id="movieList"></ul>
+
+<script>
+var movies = [ 
+    { Name: "The Red Violin", ReleaseYear: "1998" },
+    { Name: "Eyes Wide Shut", ReleaseYear: "1999" },
+    { Name: "The Inheritance", ReleaseYear: "1976" }
+];
+var color = "aqua"; 
+/* Render the template with the movies data */
+$( "#movieTemplate" ).tmpl( movies )
+    .appendTo( "#movieList" );
+
+$( "#lastItemBtn" ).click( function() {
+    /* Flip the color */
+    color = (color === "aqua" ? "yellow" : "aqua");
+
+    /* Get the data structure for the last
+       template item in the list */
+    var lastTmplItem = $( "li:last" ).tmplItem();
+
+    /* Get the corresponding data item and HTML nodes */
+    var movie = lastTmplItem.data;
+    var htmlNodes = lastTmplItem.nodes;
+
+    /* Switch the background color */
+    $( htmlNodes ).css( "backgroundColor", color );
+
+    /* Acces the data */
+    alert( "'" + movie.Name + "' was released in " + movie.ReleaseYear + "." );
+});
+</script>
+
+</body>
+</html>

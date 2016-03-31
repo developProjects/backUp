@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body, select { font-size:12px; }
+  form { margin:5px; }
+  p { color:red; margin:5px; font-size:14px; }
+  b { color:blue; }
+  </style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+	
+<h3><font color="blue">Enter information</font></h3>
+<form>
+    <select name="CourseType">
+      <option>Full Time</option>
+      <option>Part Time</option>
+    </select>
+
+<br />
+    <select name="Education" multiple="multiple">
+      <option selected="selected">Intermediate</option>
+      <option>Diploma</option>
+
+      <option>Other</option>
+    </select>
+<br/>
+    <input type="checkbox" name="Course" value="Btech" id="ch1"/>
+
+    <label for="ch1">Btech</label>
+
+    <input type="checkbox" name="Course" value="Mtech" checked="checked" id="ch2"/>
+
+    <label for="ch2">Mtech</label>
+<br />
+    <input type="radio" name="Gender" value="Male" checked="checked" id="r1"/>
+
+    <label for="r1">Male</label>
+    <input type="radio" name="Gender" value="Female" id="r2"/>
+
+    <label for="r2">Female</label>
+  </form>
+  <p><tt id="results"></tt></p>
+<script>
+    function showValues() {
+      var str = $("form").serialize();
+      $("#results").text(str);
+    }
+    $(":checkbox, :radio").click(showValues);
+    $("select").change(showValues);
+    showValues();
+</script>
+</body>
+</html>

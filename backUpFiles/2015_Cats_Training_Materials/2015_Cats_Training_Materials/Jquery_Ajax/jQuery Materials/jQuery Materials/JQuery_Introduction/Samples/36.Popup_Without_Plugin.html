@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+    <title>jQuery RSS Popup Bubble Effect</title>
+    
+	<style type="text/css">
+    * { margin: 0; padding: 0; border: 0; }
+
+.rss-popup {
+    margin: 80px;
+    padding: 0;
+    width: 100px;
+    position: relative;
+}
+ 
+div.rss-popup em {
+    background: url(images/bubble.png) no-repeat;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    text-align: center;
+    text-indent: 3px;
+	z-index: 1;
+    display: none;
+}
+ 
+#rss-icon {
+    width: 231px;
+    height: 60px;
+    background: url(images/logo.gif) no-repeat 0 0;
+    text-indent: -9999px;
+    margin: 0;
+    display: block;
+    
+}
+	</style>
+
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+    $(".rss-popup a").hover(function() {
+	$(this).next("em").stop(true, true).animate({opacity: "show", top: "60"}, "slow");
+	}, function() {
+	$(this).next("em").animate({opacity: "hide", top: "60"}, "fast");
+	});
+ 
+});
+	</script>
+
+</head>
+
+<body>
+
+
+<div class="rss-popup">
+<font color="purple">
+        <a href="http://www.cognizant.com/" id="rss-icon">RSS Feed</a>
+        <em>click on logo to go to Cognizant online</em>
+		</font>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  ul { margin:10px; list-style:inside circle; font-weight:bold; }
+  li { cursor:pointer; }
+  </style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+	<ul>
+    <li>Download jquery's set up file</li>
+    <li>Save it in your personal folder</li>
+    <li>Create html file save it in same folder</li>
+    <li>Include it's url in html code </li>
+	<li>Use script in between script tag</li>
+	<li>Run your program,simply by double clicking</li>
+  </ul>
+<script>
+    $("li").toggle(
+      function () {
+        $(this).css({"list-style-type":"disc", "color":"blue"});
+      },
+      function () {
+        $(this).css({"list-style-type":"disc", "color":"red"});
+      },
+      function () {
+        $(this).css({"list-style-type":"", "color":"yellow"});
+      },
+      function () {
+        $(this).css({"list-style-type":"", "color":""});
+      }
+    );
+
+</script>
+</body>
+</html> 

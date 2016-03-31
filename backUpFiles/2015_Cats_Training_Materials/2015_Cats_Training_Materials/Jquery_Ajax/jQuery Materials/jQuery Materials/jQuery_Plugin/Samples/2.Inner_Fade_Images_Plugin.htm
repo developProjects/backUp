@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>InnerFade Example</title>
+
+<script	type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script	type="text/javascript" src="js\jqfade.js"></script>
+
+<script	type="text/javascript">
+$(document).ready(
+function(){
+$('#portfolio').innerfade({
+animationtype: 'slide',
+speed: 'slow',
+speed: 750,
+timeout: 2000,
+type: 'random',
+containerheight: '280px'
+
+});});
+</script>
+</head>
+<body>
+<font color="red"><h2>The InnerFade Effect with Images</h2></font>
+
+<table border=1>
+<td  height=260 width=280>
+<div id="portfolio">
+<p><img src="images\jquery1.jpg" /></p>
+<p><img src="images\jquery2.jpg" /></p>
+<p><img src="images\jquery3.jpg" /></p>
+<p><img src="images\jquery4.jpg" /></p>
+<p><img src="images\jquery5.jpg" /></p>
+</td>
+
+</table>
+</body>
+</html>
+ 

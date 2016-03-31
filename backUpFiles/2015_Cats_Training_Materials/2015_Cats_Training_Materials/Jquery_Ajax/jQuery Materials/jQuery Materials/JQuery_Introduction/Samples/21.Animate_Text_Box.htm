@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE>Animate Div blocks</TITLE>
+<style>div { 
+background-color:#bca; 
+width:200px;
+height:1.1em;
+text-align:center;
+border:2px solid green;
+margin:3px;
+font-size:14px;
+}
+button {
+font-size:14px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+<button id="b1">&raquo; Animate TextBlock1</button>
+<button id="b2">&raquo; Animate TextBlock2</button>
+<button id="b3">&raquo; Animate Both TextBlock</button>
+
+<button id="b4">&raquo; Reset</button>
+<div id="textblock1">Text Block1</div>
+<div id="textblock2">Text Block2</div>
+<script>
+
+$("#b1").click(function(){
+$("#textblock1").animate( { width:"50%" }, { queue:false, duration:3000 } )
+.animate( { fontSize:"24px" }, 1500 )
+.animate( { borderRightWidth:"15px" }, 1500);
+});
+
+$("#b2").click(function(){
+$("#textblock2").animate( { width:"50%"}, 1000 )
+.animate( { fontSize:"24px" } , 1000 )
+.animate( { borderLeftWidth:"15px" }, 1000);
+});
+
+$("#b3").click(function(){
+$("#b1").add("#b2").click();
+});
+
+$("#b4").click(function(){
+$("div").css({width:"", fontSize:"", borderWidth:""});
+});
+
+</script>
+</body>
+</html> 

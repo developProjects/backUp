@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+<form>
+  <input class="flag" type="text" value="Input Field" />
+  <select class="flag">
+    <option value="option1" selected="selected">First Option</option>
+    <option value="option2">Second Option</option>
+  </select>
+</form>
+<div id="other">
+  Select second option or edit first input field to trigger the alert box.
+</div>
+<script>
+$('.flag').change(function() {
+  alert('Change method is trigerred');
+});
+</script>
+</body>
+</html> 

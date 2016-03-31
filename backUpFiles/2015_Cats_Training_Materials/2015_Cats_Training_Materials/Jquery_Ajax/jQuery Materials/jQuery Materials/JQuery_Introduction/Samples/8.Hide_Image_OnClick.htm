@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.5.js" type="text/javascript"></script>
+<script src="C:\JQuery\Demos\js\custom.js" type="text/javascript"></script>
+</head>
+<body>
+<img id="logo" src="images\logo.gif" alt="" width="200" height="50" />
+<div id="myclick">
+<font color="blue">
+  Click here to hide the logo
+</font>
+</div>
+<div id="myclick1">
+<font color="blue">
+  Click here to show the logo
+</font>
+</div>
+<script>
+ $(document).ready(function() {
+$('#myclick').click(function() {
+  $('#logo').hide('slow', function(){
+   });
+  });
+  $('#myclick1').click(function() {
+  $('#logo').show('slow', function() {
+   
+  });
+});
+  });
+</script>
+</body>
+</html> 

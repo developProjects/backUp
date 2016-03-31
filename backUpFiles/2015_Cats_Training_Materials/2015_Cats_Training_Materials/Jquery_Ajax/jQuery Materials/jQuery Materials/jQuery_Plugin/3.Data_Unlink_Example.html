@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://github.com/jquery/jquery-datalink/raw/master/jquery.datalink.js"></script>
+</head>
+<body>
+  
+<form>
+    <div>
+        First Name:
+        <input type="text" name="firstName" />
+    </div>
+    <div>
+        Last Name:
+        <input type="text" name="lastName" />
+    </div>
+    <div>
+        <input id="unlink" type="button" value="unlink" />
+    </div>
+</form>
+Object.firstName: <span id="objFirst"></span><br/>
+Object.lastName <span id="objLast"></span>
+
+<script>
+    var person = { };
+    $("form").link(person);
+
+    // Chain link the person object to these elements to show the results
+    $("#objFirst").link(person, {
+        firstName: {
+            name: "objFirst",
+            convertBack: function(value, source, target) {
+                $(target).text(value);
+            }
+        }
+    });
+    $("#objLast").link(person, {
+        lastName: {
+            name: "objLast",
+            convertBack: function(value, source, target) {
+                $(target).text(value);
+            }
+        }
+    });
+
+    // remove link
+    $("#unlink").click(function() {
+        $("form").unlink(person);
+    });
+</script>
+
+</body>
+</html>

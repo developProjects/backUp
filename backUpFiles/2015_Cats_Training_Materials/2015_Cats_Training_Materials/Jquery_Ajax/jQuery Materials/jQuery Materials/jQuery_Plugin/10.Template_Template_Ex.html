@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  table { cursor:pointer; border-collapse:collapse; border:2px solid blue; width:300px; margin:8px; }
+  table tr { border:1px solid blue; color:blue; background-color:#f8f8f8; } 
+  table td { padding:3px; } table tr:hover { color:red; }
+  .movieDetail { background-color:yellow; } 
+  .movieDetail.row1 { border-bottom:none; } .movieDetail.row2 { border-top:none; }
+</style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="summaryTemplate" type="text/x-jquery-tmpl">
+  <tr class='movieSummary'><td colspan='2'>${Name}</td></tr>
+</script>
+
+<script id="detailTemplate" type="text/x-jquery-tmpl">
+  <tr class='movieDetail row1'><td colspan='2'>${Name}</td></tr><tr class='movieDetail row2'><td>${ReleaseYear}</td><td>Director: ${Director}</td></tr>
+</script>
+
+Click for details:
+<table><tbody id="movieList"></tbody></table>
+
+<script>
+var movies = [
+  { Name: "The Red Violin", ReleaseYear: "1998", Director: "François Girard" },
+  { Name: "Eyes Wide Shut", ReleaseYear: "1999", Director: "Stanley Kubrick" },
+  { Name: "The Inheritance", ReleaseYear: "1976", Director: "Mauro Bolognini" }
+];
+var selectedItem = null;
+
+/* Render the summaryTemplate with the "movies" data */ 
+$( "#summaryTemplate" ).tmpl( movies ).appendTo( "#movieList" );
+
+$("#movieList")
+.delegate( ".movieSummary", "click", function () {
+  if (selectedItem) {
+    /* Switch previously selected item back to the summaryTemplate */ 
+    selectedItem.tmpl = $( "#summaryTemplate" ).template();
+
+    /* Update rendering of previous selected item */ 
+    selectedItem.update();
+  }
+
+  /* Make this the selected item  */
+  selectedItem = $.tmplItem(this);
+
+  /* Switch this template item to the detailTemplate */ 
+  selectedItem.tmpl = $( "#detailTemplate" ).template();
+
+  /* Refresh rendering */ 
+  selectedItem.update();
+})
+.delegate( ".movieDetail", "click", function () {
+  /* Unselect - switch to the summaryTemplate */ 
+  selectedItem.tmpl = $( "#summaryTemplate" ).template();
+
+  /* Refresh rendering */ 
+  selectedItem.update();
+
+  selectedItem = null;
+});
+</script>
+
+</body>
+</html>

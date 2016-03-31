@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+#movieList { cursor:pointer; color:blue; margin:8px; background-color:#f8f8f8; }
+#movieList li:hover { color:red; }
+</style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="movieTemplate" type="text/x-jquery-tmpl"> 
+    <li><b class="movieName">${Name}</b></li>
+</script>
+
+Click for details:
+<ul id="movieList"></ul>
+
+<script>
+var movies = [
+    { Name: "The Red Violin", ReleaseYear: "1998" },
+    { Name: "Eyes Wide Shut", ReleaseYear: "1999" },
+    { Name: "The Inheritance", ReleaseYear: "1976" }
+];
+var selectedItem =  null;
+
+/* Render the template with the movies data */
+$( "#movieTemplate" ).tmpl( movies )
+    .appendTo( "#movieList" );
+
+/* Add an onclick handler for the movie template items */
+$( ".movieName" ).live( "click", function() {
+
+    if ( selectedItem ) {
+        $( selectedItem.nodes ).css( "backgroundColor", "#f8f8f8" );
+    }
+
+    /* Get the data structure for the template item 
+       which this clicked element belongs to */
+    selectedItem = $.tmplItem( this );
+
+    $( selectedItem.nodes ).css( "backgroundColor", "yellow" );
+
+    alert( "'" + selectedItem.data.Name + "' was released in " 
+        + selectedItem.data.ReleaseYear + "." ); 
+});
+</script>
+
+</body>
+</html>

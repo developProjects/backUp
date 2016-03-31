@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="movieTemplate" type="text/x-jquery-tmpl"> 
+    <li>
+        Title: ${Name}.
+        {{if Languages.length}}
+            (Alternative languages: ${$item.getLanguages(" - ")}).
+        {{/if}}
+    </li>
+</script>
+
+<ul id="movieList"></ul>
+
+<script>
+var movies = [
+    { Name: "Meet Joe Black", Languages: ["French"] },
+    { Name: "The Mighty", Languages: [] },
+    { Name: "City Hunter", Languages: ["Mandarin", "Cantonese"] }
+];
+
+/* Render the template with the movies data */
+$( "#movieTemplate" ).tmpl( movies, { 
+    getLanguages: function( separator ) {
+        return this.data.Languages.join( separator );
+    }
+}).appendTo( "#movieList" );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+table { cursor:pointer; border-collapse:collapse; float: left; clear: both; } table tr { border:1px solid blue; color:blue; height:25px; } table tr:hover { color:red; }
+table, #personDetail > div { border:2px solid blue; width:220px; margin:8px 0 4px 0; background-color:#f8f8f8; } table td, #personDetail div div { padding:3px; margin:3px; }
+.selected { background-color:yellow; } #personDetail input { float:right; width:125px; } #personDetail { float:left; margin-left:10px; }
+</style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="listItemTemplate" type="text/x-jquery-tmpl"> 
+    <tr><td>
+        ${firstName} ${lastName} 
+    </td></tr>
+</script>
+
+<script id="detailTemplate" type="text/x-jquery-tmpl"> 
+    <div>
+        <div>First Name: <em>${firstName}</em></div>
+        <div>Last Name: <em>${lastName}</em></div>
+    </div>
+</script>
+
+<div style="float:left;">Click for details:<div>
+<table><tbody id="peopleList"></tbody></table>
+
+<div id="personDetail"></div>
+
+<script>
+var people = [
+    { firstName: "Peter", lastName: "Jones" },
+    { firstName: "Eva", lastName: "Smolinski" }
+];
+
+var selectedItem = null;
+
+function renderTemplate( container, template, data ) {
+    $( container ).empty();
+    $( template ).tmpl( data ).appendTo( container );
+}
+
+/* Render the list */
+renderTemplate( "#peopleList", "#listItemTemplate", people );
+
+$("#peopleList")
+    .delegate( "tr", "click", function () {
+
+        if ( selectedItem ) {
+            $( selectedItem.nodes ).removeClass( "selected");
+        }
+
+        /* Set selection on the clicked item */
+        selectedItem = $.tmplItem(this);
+        $( selectedItem.nodes ).addClass( "selected");
+
+        /* Render the detail view for this data item */
+        renderTemplate( "#personDetail", "#detailTemplate", selectedItem.data );
+    });
+</script>
+
+</body>
+</html>

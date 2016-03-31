@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+table { border-collapse:collapse; border:2px solid blue; margin:5px; background-color:#f8f8f8; }
+table tr { border:1px solid blue; } table td { padding:2px; }
+.title { border-bottom:none; } .detail { border-top:none; }
+</style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="movieTemplate" type="text/x-jquery-tmpl"> 
+    {{tmpl "#titleTemplate"}}
+    <tr class="detail"><td>Director: ${Director}</td></tr>
+</script>
+
+<script id="titleTemplate" type="text/x-jquery-tmpl"> 
+    <tr class="title"><td>${Name}</td></tr>
+</script>
+
+<table><tbody id="movieList"></tbody></table>
+
+<script>
+var movies = [
+    { Name: "The Red Violin", Director: "François Girard" },
+    { Name: "Eyes Wide Shut", Director: "Stanley Kubrick" },
+    { Name: "The Inheritance", Director: "Mauro Bolognini" }
+];
+
+/* Render the template with the movies data */
+$( "#movieTemplate" ).tmpl( movies ).appendTo( "#movieList" );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>InnerFade Example</title>
+
+<script	type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script	type="text/javascript" src="js\jqfade.js"></script>
+
+<script	type="text/javascript">
+$(document).ready(
+function(){
+$('#news').innerfade({
+animationtype: 'slide',
+speed: 750,
+timeout: 2000,
+type: 'random',
+containerheight: '1.5em'
+});});
+</script>
+</head>
+<body>
+<font color="red"><h2>The InnerFade	Effect using "jqfade.js" Plugin</h2></font>
+
+<table border=1>	
+<tr>
+<td	 valign="center" bgcolor="#DDA0DD" width=500><font color="blue">
+<center><h3>Functions of jQuery</h3></center>		
+<ul	id="news">					
+<li>
+Jquery Ajax	used to	connect	JSP/Servlet/PHP	etc.
+</li>
+<li	>
+The	.fadeIn() method animates the opacity of the matched elements.
+</li>					
+<li	>
+The	.fadeOut() method animates the opacity of the matched elements
+</li>					
+<li>
+The	.fadeTo() method animates the opacity of the matched elements.
+</li>
+<li>
+The	.animate() perform a custom	animation of a set of CSS properties.
+
+</li>
+<li>
+The	.slideDown() method	animates the height	of the matched elements
+</li>					
+<li>
+The	.slideToggle() method animates the height of the matched elements. 
+</li>					
+<li>
+The	.slideUp() method animates the height of the matched elements. 
+</li>				
+</ul>
+</font></td>
+</tr>
+</table>
+
+</body>
+</html>
+ 

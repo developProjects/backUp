@@ -1,0 +1,41 @@
+
+<html>
+ <head>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+      // use this to reset a single form
+      $("#reset").click(function() {
+            $(form).reset();
+
+      });
+ });
+ </script>
+ </head>
+ <body>
+   <form name="createAccountForm">
+   	<table align="center">
+   		<tr>
+   			<td>First Name</td>
+   			<td><input type="text" name="firstName"></td>
+   		</tr>
+   		<tr>
+		   	<td>Last Name</td>
+		   	<td><input type="text" name="lastName"></td>
+   		</tr>
+   		<tr>
+		   	<td>Email address</td>
+		   	<td><input type="text" name="email"></td>
+   		</tr>
+   		<tr>
+		   	<td>Phone</td>
+		   	<td><input type="text" name="firstName"></td>
+   		</tr>
+   		<tr>
+   			<td><input type="button" id="submit" value="Submit"></td>
+   			<td><input type="button" id="reset" value="Reset"></td>
+   		</tr>
+   	</table>
+   </form>
+ </body>
+ </html>

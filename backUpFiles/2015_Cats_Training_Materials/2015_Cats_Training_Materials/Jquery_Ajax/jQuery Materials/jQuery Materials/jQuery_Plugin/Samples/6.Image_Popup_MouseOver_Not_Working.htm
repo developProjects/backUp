@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.5.js"></script>
+
+<script src="js/jquery.thumbhover.js"></script>
+<script>
+$(function(){
+	$("img[src*='_s.jpg']").thumbPopup({
+		imgSmallFlag: "_t",
+		imgLargeFlag: "_l"
+	});
+});
+</script>
+</head>
+<body>
+<center><font color="red"><h2>Mouse Hover on below Image to see effects</h2></font></center>
+<table align="center" style="margin-top: 50px;">
+	<tr>
+		<td><img src="images/jquery1.jpg" /></td>
+		<td><img src="images/jquery2.jpg"  /></td>
+	</tr>
+	<tr>
+		<td><img src="images/jquery3.jpg"  /></td>
+		<td><img src="images/jquery4.jpg" /></td>
+	</tr>
+</table>
+</body>
+</html> 

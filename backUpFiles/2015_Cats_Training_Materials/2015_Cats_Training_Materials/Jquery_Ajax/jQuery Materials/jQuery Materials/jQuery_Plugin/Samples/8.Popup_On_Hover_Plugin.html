@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+      <title>Pop UP on Hover</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<script type="text/javascript" src="jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="hovertip.js"></script>
+		<script type="text/javascript">
+			// initialize tooltips in a seperate thread
+			$(document).ready(function() {
+			  window.setTimeout(hovertipInit, 1);
+		     });
+		</script>
+		<style type="text/css" media="all">@import "css/css.css";</style>
+</head>
+<body>
+<h3><font color="red">Hover on any topiv to know about it</font></h3>
+		<div id="cloud">
+			<ul class="nav">
+				<li>
+				    <a class="size1" href="#" id="j1">jQuery</a>
+					<ul style="display: block;" class="hovertip" target="j1">
+						<li><a class="size-sub3" href="#">jQuery is a lightweight cross-browser JavaScript library that emphasizes interaction between JavaScript and HTML.</a></li>
+					</ul>
+				</li>
+				<li>
+				    <a class="size1" href="#" id="j2">Jason</a>
+					<ul style="display: block;" class="hovertip" target="j2">
+						<li><a class="size-sub3" href="#">JSON is a lightweight text based open standard designed for human-readable data interchange.</a></li>
+					</ul>
+				</li>
+				<li>
+				    <a class="size1" href="#" id="j3">Ajax</a>
+					<ul style="display: block;" class="hovertip" target="j3">
+						<li><a class="size-sub3" href="#">Ajax is used on the client-side to create interactive web applications.</a></li>
+					</ul>
+				</li>
+				</ul>
+		</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+ <head>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+ <script type="text/javascript">
+   $(document).ready(function() {
+   	$("#more").before("Introduction.").after("Conclusion.");
+   })
+ </script>
+ </head>
+ <body>
+   <p>
+	<span>This is first sentence of the paragraph.</span>
+	This is the remainder of the paragraph that goes on and on and on.
+	<span id="more">
+		Oh Wait, here is another span
+	</span>
+   </p>
+ </body>
+ </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+  <button>Show Trim Example</button>
+<script>
+
+$("button").click(function () {
+var str = "     lots of spaces before and after     ";
+alert("'" + str + "'");
+
+str = jQuery.trim(str);
+alert("'" + str + "' - no longer");
+});
+
+</script>
+
+</body>
+</html>

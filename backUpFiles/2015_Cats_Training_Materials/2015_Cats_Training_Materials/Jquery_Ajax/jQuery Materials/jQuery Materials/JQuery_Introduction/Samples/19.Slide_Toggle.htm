@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>JQuery Collapse</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script type="text/javascript">
+$(function()
+{
+
+$("#click_here").click(function(event) {
+event.preventDefault();
+$("#div1").slideToggle();
+});
+
+$("#div1 a").click(function(event) {
+event.preventDefault();
+$("#div1").slideUp();
+});
+});
+</script>
+<style type="text/css">
+body {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #666666; 
+}
+a{color:#993300; text-decoration:none;}
+#div1 {
+width:30%;
+display: none;
+padding:5px;
+border:2px solid #EFEFEF;
+background-color:#7FFFD4;
+}
+#click_here{
+padding:5px;
+border:2px solid #FFEFEF;
+background-color:#FF6347;
+}
+</style>
+</head>
+<body>
+<input type="button" id="click_here" value="Click Here">
+<div id="div1">
+<a href="#" class="close">[x]</a>
+<p>
+This window displays because the button click
+<br>fires slideToggle event,which slide up the window.
+<br>CLICK ON [X] TO SLIDE UP/CLOSE THE WINDOW.
+</p>
+</div>
+</body>
+</html>
+ 

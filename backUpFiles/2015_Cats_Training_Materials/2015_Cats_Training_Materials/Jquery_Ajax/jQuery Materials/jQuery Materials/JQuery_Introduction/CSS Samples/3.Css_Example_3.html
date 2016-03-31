@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { color:green; }
+</style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+  
+  <p>Move the mouse over a paragraph.</p>
+  <p>Like this one or the one above.</p>
+
+<script>
+  $("p").hover(function () {
+    $(this).css({'background-color' : 'yellow', 'font-weight' : 'bolder'});
+  }, function () {
+    var cssObj = {
+      'background-color' : '#ddd',
+      'font-weight' : '',
+      'color' : 'rgb(0,40,244)'
+    }
+    $(this).css(cssObj);
+  });
+</script>
+
+</body>
+</html>

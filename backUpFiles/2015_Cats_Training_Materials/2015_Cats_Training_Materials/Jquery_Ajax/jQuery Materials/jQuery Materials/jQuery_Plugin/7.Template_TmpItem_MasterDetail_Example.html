@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  table {cursor:pointer;border-collapse:collapse;float:left;clear:both;} 
+  table tr {border:1px solid blue;color:blue;height:25px;} 
+  table tr:hover {color:red;}
+  table, #personDetail > div {border:2px solid blue;width:230px;
+                     margin:4px 0 4px 4px;
+                     background-color:#f8f8f8;} 
+  table td, #personDetail div div {padding:3px;margin:3px;}
+  .selected {background-color:yellow;} 
+  #personDetail input {float:right;width:125px;} 
+  #personDetail {float:left;margin-left:10px;} 
+  button {float:left;margin:4px;}
+</style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+<script id="listItemTemplate" type="text/x-jquery-tmpl"> 
+    <tr><td>
+        ${firstName} ${lastName} 
+    </td></tr>
+</script>
+
+<script id="detailTemplate" type="text/x-jquery-tmpl"> 
+    <div>
+        <div>First Name: <input name="firstName" value="${firstName}"/></div>
+        <div>Last Name: <input name="lastName" value="${lastName}"/></div>
+    </div>
+</script>
+
+<button id="addBtn">Add a person</button>
+
+<table><tbody id="peopleList"></tbody></table>
+
+<div id="personDetail"></div>
+
+<script>
+var people = [
+    { firstName: "Peter", lastName: "Jones" },
+    { firstName: "Eva", lastName: "Smolinski" }
+];
+
+var selectedItem = null;
+
+function renderTemplate( container, template, data ) {
+    $( container ).empty();
+    $( template ).tmpl( data ).appendTo( container );
+}
+
+/* Render the list */
+renderTemplate( "#peopleList", "#listItemTemplate", people );
+
+function select( tmplItem ) {
+    if ( selectedItem ) {
+        $( selectedItem.nodes ).removeClass( "selected");
+    }
+    $( tmplItem.nodes ).addClass( "selected");
+    selectedItem = tmplItem;
+
+    /* Render the detail view for this data item */
+    renderTemplate( "#personDetail", "#detailTemplate", tmplItem.data );
+}
+
+$("#addBtn").click( function () {
+    /* Add a new item to the data array */
+    people.push( { firstName: "first", lastName: "last" } );
+
+    /* Render the template with the new data */
+    renderTemplate( "#peopleList", "#listItemTemplate", people );
+
+    /* Find the added template item */
+    var addedTmplItem = $("#peopleList tr:last").tmplItem();
+    
+    /* Set selection on the added item */
+    select ( addedTmplItem );
+});
+
+$("#peopleList")
+    .delegate( "tr", "click", function () {
+        /* Set selection on the clicked item */
+        select ( $.tmplItem(this) );
+    });
+
+$("#personDetail")
+    .delegate( "input", "change", function () {
+        /* Set the data to the modified value */
+        $.tmplItem(this).data[ this.name ] = this.value;
+        
+        /* Render the list, to show the updated data */ 
+        renderTemplate( "#peopleList", "#listItemTemplate", people );
+    });
+</script>
+
+</body>
+</html>

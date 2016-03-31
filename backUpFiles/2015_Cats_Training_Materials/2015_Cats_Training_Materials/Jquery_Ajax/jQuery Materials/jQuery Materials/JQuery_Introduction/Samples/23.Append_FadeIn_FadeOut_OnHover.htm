@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  ul { margin-left:20px; color:blue; }
+  li { cursor:default; }
+  span { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+
+</head>
+<h3><font color="red">Hover on any element to see effect</font></h3>
+<body>
+	<ul>
+    <li>Cake</li>
+    <li>Pastries</li>
+    <li class='fade'>Patties</li>
+	<li class='fade'>Noodles</li>
+  </ul>
+<script>
+    $("li").hover(
+      function () {
+        $(this).append($("<span><<< </span>"));
+      }, 
+      function () {
+        $(this).find("span:last").remove();
+      }
+    );
+ //li with fade class
+   $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
+
+</script>
+</body>
+</html> 

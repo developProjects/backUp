@@ -1,0 +1,7 @@
+
+
+
+
+
+Ajax is used for retrieving information from the server with partial page updation and without entire page reloading 
+

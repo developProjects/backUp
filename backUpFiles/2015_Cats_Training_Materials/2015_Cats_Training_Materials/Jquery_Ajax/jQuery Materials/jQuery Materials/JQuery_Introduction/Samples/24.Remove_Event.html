@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+button { margin:5px; }
+button#theone { color:red; background:blue; }
+</style>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+	<button id="theone">click not working</button>
+<button id="bind">Enable Click</button>
+<button id="unbind">Disable Click</button>
+<br><b><font color="purple">After enable/disable click , click on blue button to see effect of die event</font></b>
+<div style="display:none; color:red;">Button Clicked!</div>
+<script>
+
+function aClick() {
+  $("div").show().fadeOut("slow");
+}
+$("#bind").click(function () {
+  $("#theone").live("click", aClick).text("click working");
+});
+$("#unbind").click(function () {
+  $("#theone").die("click", aClick).text("click not working");
+});
+
+</script>
+</body>
+</html>

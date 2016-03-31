@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE>Animate Image </TITLE>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+  <script src="js\jquery.imghover-1.1rc.js" type="text/javascript"></script>
+  </HEAD>
+
+ <BODY>
+ 
+ <div id="clickme" >
+ <font color="red">
+  Click here
+  </font>
+</div>
+<img id="book" src="images\jquery5.jpg" alt="" width="200" height="223" style="position: relative; left: 10px;" /> 
+
+<script>
+
+$('#clickme').click(function() {
+$("#targetDiv").hide();
+  $('#book').animate({
+    opacity: 0.25,
+    left: '+=50',
+    height: 'toggle'
+  }, 5000, function() {
+    // Animation complete.
+	$("#targetDiv").html("<h3>"+ "Click again above link to animate" + "</h3>").fadeIn("slow");
+  });
+});
+</script>
+
+<font color="blue">
+<div id="targetDiv" style="display: none;"></div>
+</font>
+ </BODY>
+</HTML>
+ 

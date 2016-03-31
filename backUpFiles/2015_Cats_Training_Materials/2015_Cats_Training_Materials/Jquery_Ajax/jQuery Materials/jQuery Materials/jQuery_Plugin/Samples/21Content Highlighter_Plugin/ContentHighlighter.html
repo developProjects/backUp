@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Content highlighting in form using jQuery - Example</title>
+<style>
+	body{
+		font-family:Arial, Helvetica, sans-serif;
+		font-size: 13px;
+	}
+	.content, .contentA{
+		padding:10px;
+		width:370px
+	}
+	.left{
+		width:150px;
+		float:left;
+		padding:7px 0px 0px 7px;
+		min-height:24px;
+	}
+	.right{
+		width:200px;
+		float:left;
+		padding:5px;
+		min-height:24px;
+	}
+	.clear{
+		float:none;
+		clear:both;
+		height:0px;
+	}
+	.row{
+		background-color:none;
+		display:block;
+		min-height:32px;
+	}
+	.text{
+		width:190px;
+	}
+	.ruler{
+		width:400px; border-bottom:dashed 1px #dcdcdc;
+	}
+	tr:focus{
+		background-color:#fcfcf0;
+	}
+	td{
+		vertical-align:top;
+	}
+	.over{
+		background-color:#e6e2af;
+	}
+	.out{
+		background-color:none;
+	}
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+		$(document).ready(function()
+		{
+			$('.content .left, .content input, .content textarea, .content select').focus(function(){
+				$(this).parents('.content').addClass("over");
+			}).blur(function(){
+				$(this).parents('.content').removeClass("over");
+			});
+			$('.contentA .left, .contentA input, .contentA textarea, .contentA select').focus(function(){
+				$(this).parents('.row').addClass("over");
+			}).blur(function(){
+				$(this).parents('.row').removeClass("over");
+			});
+		});
+</script>
+</head>
+
+<body>
+	<form method="post">
+
+    <font color="red">
+	<h2>Content highlighting in form using jQuery - Example</h2>
+	</font>
+	<div style="float:left; margin-right:20px; width:400px;">
+	<h3>Row highlighting</h3>
+	<div class="contentA">
+		<div class="row">
+			<div class="left">First name</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Last name</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="row">
+			<div class="left">Email</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Password</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+	<hr />
+		<div class="contentA">
+		<div class="row">
+			<div class="left">Address</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Postal</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="row">
+
+			<div class="left">City</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Country</div>
+
+			<div class="right"><select name="Select1" style="width: 195px">
+				<option></option>
+
+				</select></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<hr />
+		<div class="contentA">
+
+		<div class="row">
+			<div class="left">Account type</div>
+
+			<div class="right">
+				<input checked="checked" name="Radio1" type="radio" />Free 
+				<br />
+				<input checked="checked" name="Radio1" type="radio" />Silver
+				<br />
+				<input checked="checked" name="Radio1" type="radio" />Golder
+			</div>
+
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+
+			<div class="left">Some description</div>
+			<div class="right"><textarea name="TextArea1" cols="22" rows="3"></textarea></div>
+			<div class="clear"></div>
+		</div>
+
+	</div>
+	<input name="Button1" type="button" value="Submit" />
+	</div>
+	<div style="float:left; margin-right:20px;">
+
+	<h3>Group highlighting</h3>
+	<div class="content">
+		<div class="row">
+			<div class="left">First name</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+
+			<div class="left">Last name</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="row">
+			<div class="left">Email</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+
+		</div>
+		<div class="row">
+			<div class="left">Password</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<hr />
+
+		<div class="content">
+		<div class="row">
+			<div class="left">Address</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Postal</div>
+
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="row">
+			<div class="left">City</div>
+			<div class="right"><input name="Text1" type="text" class="text" /></div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="row">
+			<div class="left">Country</div>
+
+			<div class="right"><select name="Select1" style="width: 195px">
+				<option></option>
+				</select></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<hr />
+		<div class="content">
+
+		<div class="row">
+			<div class="left">Account type</div>
+			<div class="right">
+				<input checked="checked" name="Radio1" type="radio" />Free
+				<br />
+				<input checked="checked" name="Radio1" type="radio" />silver
+				<br />
+
+				<input checked="checked" name="Radio1" type="radio" />Golden
+			</div>
+
+			<div class="clear"></div>
+		</div>
+		<div class="row">
+			<div class="left">Some description</div>
+			<div class="right"><textarea name="TextArea1" cols="22" rows="3"></textarea></div>
+			<div class="clear"></div>
+
+		</div>
+
+	</div>
+	<input name="Button1" type="button" value="Submit" />
+	</div>
+</form>
+</body>
+
+</html>
