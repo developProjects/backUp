@@ -1,0 +1,50 @@
+.mainlist{
+	margin: 70px 200px;
+	position: relative;
+}
+.mainlist ul{
+	border: 1px solid #000;
+	width: 200px;
+	font-family: arial;
+}
+.mainlist ul li{
+	list-style-type: none;
+	text-align: left; 
+	padding: 4px 0px 10px 8px;
+	border-top: 1px solid transparent ;
+	border-bottom: 1px solid transparent;
+}
+.first{
+	color: #aaa;
+}
+.last{
+	color: #aaa;
+}
+.mainlist ul li:hover{
+	background: #ebebeb;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.mainlist ul li:first-child{
+	border-top: none;
+}
+.mainlist ul li:last-child{
+	border-bottom: none;
+}
+
+.mainlist ul ul{
+	margin-left: 100px;
+}
+.submenu1{
+	position: absolute;
+	top: 128px;
+  	left: 201px;
+  	display: none;
+}
+.submenu2{
+	position: absolute;
+	top: 191px;
+  	left: 201px;
+  	display: none;
+}
